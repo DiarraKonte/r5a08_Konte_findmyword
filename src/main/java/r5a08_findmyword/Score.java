@@ -3,23 +3,30 @@ package r5a08_findmyword;
 public class Score {
 
     private final String correct;
-    private Letter result = Letter.INCORRECT;
+    private final Letter[] result;
 
     public Score(String correct) {
         this.correct=correct;
+        this.result = new Letter[correct.length()];
     }
 
     public Letter letter(int i) {
-        return result;
+        return result[i];
     }
 
-    public void assess(int position, String attempt) {
-        if (isCorrectLetter(position, attempt)){
-            result = Letter.CORRECT;
-        }
-    }
-
-    private boolean isCorrectLetter(int position, String attempt) {
+    private boolean isCorrectLetterAt(int position, String attempt) {
         return this.correct.charAt(position) == attempt.charAt(position);
     }
+
+
+    public void assess(String attempt) {
+        for(int i=0;i<attempt.length();i++) {
+            if(isCorrectLetterAt(i, attempt)) {
+                result[i] = Letter.CORRECT;
+            }  else{
+                result[i] = Letter.INCORRECT;
+            }
+        }
+    }
 }
+
