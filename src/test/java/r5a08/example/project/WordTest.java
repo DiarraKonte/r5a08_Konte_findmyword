@@ -1,4 +1,4 @@
-package r5a08_findmyword;
+package r5a08.example.project;
 
 import org.junit.jupiter.api.Test;
 
