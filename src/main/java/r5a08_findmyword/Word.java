@@ -1,7 +1,7 @@
 package r5a08_findmyword;
 
 public class Word {
-    private String word;
+    private final String word;
 
     public Word(String correctWord) {
         this.word = correctWord;
